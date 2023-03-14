@@ -1,101 +1,123 @@
-﻿
-using System;
+﻿using System;
 
-
-namespace LinearandBinarySearch
+namespace Linaear_dan_Binary_Search
 {
     class Program
     {
-        int[] arr = new int[29];
+        //array untuk mencari
+        int[] arr = new int[20];
+
+        //element didalam array
         int n;
+
+        //get the number of element to store in the array
         int i;
 
         public void input()
         {
             while (true)
             {
-                Console.Write("enter the number of element in the array:");
+                Console.Write("Enter of Numbers of Element in the Array : ");
                 string s = Console.ReadLine();
                 n = Int32.Parse(s);
                 if ((n > 0) && (n <= 20))
                     break;
                 else
-                    Console.WriteLine("\nArray should have minimum  and maximum 20 element.\n");
-            }
-            Console.WriteLine("");
-            Console.WriteLine("==========");
-            Console.WriteLine("enter array element");
-            Console.WriteLine("=============");
-            for (i = 0; i < n; i++)
-            {
-                Console.WriteLine("<" + (i + 1) + "+>");
-                string s1 = Console.ReadLine();
-                arr[i] = int.Parse(s1);
+                    Console.Write("\n Array should have minimun 1 and maximum 20 element. \n");
             }
 
-       
-        
+            //memasukkan element pada array
+            Console.WriteLine("");
+            Console.WriteLine("--------------------");
+            Console.WriteLine("Enter Array Element ");
+            Console.WriteLine("--------------------");
+
+            for (i = 0; i < n; i++)
+            {
+                Console.Write("<" + (i + 1) + ">");
+                string s1 = Console.ReadLine();
+                arr[i] = Int32.Parse(s1);
+            }
         }
         public void BinarySearch()
         {
             char ch;
+
             do
             {
-                Console.Write("enter element want to search");
+
+                //memasukkan nomer element yang ingin dicari
+                Console.Write("\n Enter the Element you want to search : ");
                 int item = Convert.ToInt32(Console.ReadLine());
+
+                //penggunaan algoritma binary search
                 int lowerbound = 0;
                 int upperbound = 0;
+
+                //obtained the index of the middle element in the array
                 int mid = (lowerbound + upperbound) / 2;
                 int ctr = 1;
+
+                //loop the search for the element in the array
                 while ((item != arr[mid]) && (ctr <= upperbound))
                 {
                     if (item == arr[mid])
 
                         lowerbound = mid + 1;
                     else
-                        upperbound = mid = 1;
+                        upperbound = mid - 1;
+
+
                     mid = (lowerbound + upperbound) / 2;
                     ctr++;
 
-                    if (item = arr[mid])
+
+                    if (item == arr[mid])
 
                         Console.WriteLine("\n" + item.ToString() + "found at position" + (mid + 1).ToString());
                     else
-                        Console.WriteLine("\n" + item.ToString() + "not found in the array\n ");
-                    Console.WriteLine("\nNumber of comparasion : " + ctr);
+                        Console.WriteLine("\n" + item.ToString() + "not found in the array\n");
+                    Console.WriteLine("\nNumber of Comparasion : " + ctr);
 
 
                 }
-                Console.Write("\nContinue search (y/n):");
-                ch = char.Parse(Console.ReadLine().ToUpper());
-
+                Console.WriteLine("\nContinue search (y/n) : ");
+                ch = char.Parse(Console.ReadLine());
             } while ((ch == 'y'));
+
         }
-            public void LinearSearch()
+        public void LinearSearch()
         {
             char ch;
+            //search for the nummber to be search
             int ctr;
             do
-           { 
-            Console.WriteLine("\nEnter element you want to search:");
-            int item = Convert.ToInt32((Console.ReadLine()));
-            ctr = 0;
-            for(i = 0; i<n; i++)
             {
-                ctr++;
-                if (arr[i] == item)
+                //accept the number to be search
+                Console.Write("\nEnter the Element you want to search : ");
+                int item = Convert.ToInt32(Console.ReadLine());
+
+                ctr = 0;
+                for (i = 0; i < n; i++)
                 {
-                    Console.WriteLine("\n" + item.ToString() + "found dt position" + (i + 1.ToString()));
+                    ctr++;
+                    if (arr[i] == item)
+                    {
+                        Console.WriteLine("\n" + item.ToString() + " found at position" + (i + 1).ToString());
                         break;
+                    }
                 }
-            }
-            if (i == n)
-                Console.WriteLine("\n" + item.ToString() + "not found");
-            Console.WriteLine("\nNumber of comparasion:" + ctr);
-            Console.WriteLine("\nContinue search (y/n):");
-            ch = char.Parse(Console.ReadLine().ToUpper());
-        }while ((ch =='y'));
-    }
+                if (i == n)
+                    Console.WriteLine("\n" + item.ToString() + "not found in the array");
+                Console.WriteLine("\nNumber of Comparison : " + ctr);
+                Console.WriteLine("\nContinue Search (y/n) : ");
+                ch = char.Parse(Console.ReadLine());
+            } while ((ch == 'y'));
+
+        }
+
+
+
         static void Main(string[] args)
         {
             int pilihanmu;
