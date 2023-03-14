@@ -46,7 +46,7 @@ namespace Linaear_dan_Binary_Search
             do
             {
 
-                //memasukkan nomer element yang ingin dicari
+                //memasukkan nomer element yang ingin dicari 
                 Console.Write("\n Enter the Element you want to search : ");
                 int item = Convert.ToInt32(Console.ReadLine());
 
